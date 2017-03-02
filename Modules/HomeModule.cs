@@ -54,6 +54,26 @@ namespace RecipeBox
                 return View["index.cshtml"];
             };
 
+            Delete["/category/delete/{id}"] = parameters => {
+              Dictionary<string, object> model = new Dictionary<string, object>();
+              Category SelectedCategory = Category.Find(parameters.id);
+              SelectedCategory.Delete();
+              model.Add("category", SelectedCategory);
+              return View["success.cshtml", model];
+            };
+
+            Get["/recipe/delete/{id}"] = parameters => {
+              Recipe SelectedRecipe = Recipe.Find(parameters.id);
+              return View["category_recipes.cshtml", SelectedRecipe];
+            };
+
+            Delete["/recipe/delete/{id}"] = parameters => {
+              Dictionary<string, object> model = new Dictionary<string, object>();
+              Recipe SelectedRecipe = Recipe.Find(parameters.id);
+              SelectedRecipe.Delete();
+              model.Add("recipe", SelectedRecipe);
+              return View["success.cshtml", model];
+            };
         }
 
 

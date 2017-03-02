@@ -5,7 +5,15 @@
 
 @foreach(var recipe in Model["recipes"])
 {
+  <li>
     <h4>@recipe.GetName()</h4>
+    <h4>@recipe.GetIngredients()</h4>
+    <h4>@recipe.GetInstructions()</h4>
+    <form action="/recipe/delete/@recipe.GetId()" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit" name="button">Delete Recipe</button>
+    </form>
+  </li>
 }
 <h3>New Recipe</h3>
 <form action="/category/@Model["category"].GetId()/recipe/new" method="post">
@@ -14,4 +22,5 @@
     <input type="text" name="recipe-instructions" placeholder="Recipe Instructions">
     <button type="submit" name="button">Add Recipe</button>
 </form>
+
 <a href="/">Home</a>

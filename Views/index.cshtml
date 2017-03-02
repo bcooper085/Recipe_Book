@@ -4,7 +4,13 @@
 <h3>Recipe Categories</h3>
     @foreach (var category in Model)
     {
-        <li><a href="category/@category.GetId()">@category.GetName()</a></li>
+        <li>
+          <a href="category/@category.GetId()">@category.GetName()</a>
+          <form action="/category/delete/@category.GetId()" method="post">
+          <input type="hidden" name="_method" value="DELETE">
+          <button type="submit" name="button">Delete Category</button>
+          </form>
+        </li>
     }
 
 <form action="/" method="post">
