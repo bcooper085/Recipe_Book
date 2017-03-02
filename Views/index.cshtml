@@ -4,7 +4,10 @@
 <h3>Recipe Categories</h3>
     @foreach (var category in Model)
     {
-        <li><a href="/category/@category.GetId()">@category.GetName()</a></li>
+        <li><a href="category/@category.GetId()">@category.GetName()</a></li>
     }
 
-<a href="recipe/new">Add Recipe</a>
+<form action="/" method="post">
+  <input type="text" name="category-name" placeholder="Recipe Category">
+  <button type="submit" name="button">Add Category</button>
+</form>

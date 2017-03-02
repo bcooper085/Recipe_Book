@@ -18,12 +18,15 @@ namespace RecipeBox
                 return View["recipe_form.cshtml"];
             };
 
+            Post["/"] = _ => {
+              Category newCategory = new Category(Request.Form["category-name"]);
+              newCategory.Save();
+              return View["index.cshtml", Category.GetAll()];
+            };
+
             Post["/recipe/new"] = _ => {
-                Category newCategory = new Category(Request.Form["category-name"]);
-                newCategory.Save();
                 Recipe newRecipe = new Recipe(Request.Form["recipe-name"], Request.Form["recipe-ingredients"], Request.Form["recipe-instructions"]);
                 newRecipe.Save();
-                newCategory.AddRecipe(newRecipe);
                 return View["recipe_form.cshtml"];
             };
 
