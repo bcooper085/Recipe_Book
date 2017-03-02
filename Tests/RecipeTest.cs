@@ -124,6 +124,28 @@ namespace RecipeBox
           Assert.Equal(testList, result);
         }
 
+        [Fact]
+        public void Test_Delete_DeletesRecipeFromCategory()
+        {
+          //Arrange
+          Category testCategory = new Category("Asian");
+          testCategory.Save();
+
+          Recipe testRecipe = new Recipe("Spicy Yaki Soba", "Spicy, Soba", "Pour Spicy into Soba");
+          testRecipe.Save();
+
+          //Act
+          testRecipe.AddCategory(testCategory);
+          testRecipe.Delete();
+
+          List<Recipe> resultCategoryRecipes = testCategory.GetRecipes();
+          List<Recipe> testCategoryRecipes = new List<Recipe> {};
+
+          //Assert
+          Assert.Equal(testCategoryRecipes, resultCategoryRecipes);
+        }
+
+
         public void Dispose()
         {
             Category.DeleteAll();

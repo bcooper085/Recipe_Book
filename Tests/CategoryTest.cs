@@ -125,10 +125,6 @@ namespace RecipeBox
             Assert.Equal(testRecipeCategories, resultRecipeCategories);
         }
 
-
-
-
-
         public void Dispose()
         {
             Category.DeleteAll();

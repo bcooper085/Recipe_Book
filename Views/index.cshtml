@@ -1,0 +1,10 @@
+@{
+  Layout = "Shared/_Layout.cshtml";
+}
+<h3>Recipe Categories</h3>
+    @foreach (var category in Model)
+    {
+        <li><a href="/category/@category.GetId()">@category.GetName()</a></li>
+    }
+
+<a href="recipe/new">Add Recipe</a>

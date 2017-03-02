@@ -1,0 +1,13 @@
+@{
+  Layout = "Shared/_Layout.cshtml";
+}
+<h3>New Recipe</h3>
+<form action="/recipe/new" method="post">
+    <input type="text" name="category-name" placeholder="Recipe Category">
+    <input type="text" name="recipe-name" placeholder="Recipe Name">
+    <input type="text" name="recipe-ingredients" placeholder="Recipe Ingredients">
+    <input type="text" name="recipe-instructions" placeholder="Recipe Instructions">
+    <button type="submit" name="button">Add Recipe</button>
+</form>
+
+<a href="/">Home</a>
