@@ -5,15 +5,17 @@
     @foreach (var category in Model)
     {
         <li>
-          <a href="category/@category.GetId()">@category.GetName()</a>
+          <h3><a href="category/@category.GetId()">@category.GetName()</a></h3>
           <form action="/category/delete/@category.GetId()" method="post">
           <input type="hidden" name="_method" value="DELETE">
-          <button type="submit" name="button">Delete Category</button>
+          <button type="submit" class="waves-effect waves-light btn" name="button">Delete Category</button>
           </form>
         </li>
     }
-
-<form action="/" method="post">
-  <input type="text" name="category-name" placeholder="Recipe Category">
-  <button type="submit" name="button">Add Category</button>
-</form>
+<button type="button" id="add-category" class="waves-effect waves-light btn" name="button">Add Category</button>
+<div class="add-form">
+  <form action="/" method="post">
+    <input  class="recipe-input" type="text" name="category-name" placeholder="Recipe Category">
+    <button type="submit" class="waves-effect waves-light btn" name="button">Submit</button>
+  </form>
+</div>

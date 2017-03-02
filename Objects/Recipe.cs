@@ -52,6 +52,8 @@ namespace RecipeBox
       return _instructions;
     }
 
+    
+
     public static List<Recipe> GetAll()
     {
       List<Recipe> allRecipes = new List<Recipe>{};
@@ -237,6 +239,6 @@ namespace RecipeBox
       SqlCommand cmd = new SqlCommand("DELETE FROM recipes;", conn);
       cmd.ExecuteNonQuery();
       conn.Close();
-    }  
+    }
   }
 }

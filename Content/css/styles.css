@@ -1,0 +1,42 @@
+.add-form {
+  display: none;
+}
+
+.header {
+  text-align: center;
+  background-color: #bc2022;
+  color: white;
+  width: 100vw;
+  position: relative;
+  top: 0px;
+  margin-top: -35px;
+  padding-top: 5%;
+  padding-left: 5%;
+  border-bottom: 2px solid #5b6c87;
+}
+
+h3 {
+  color: #bc2022;
+}
+
+li h3 a {
+    color: #bc2022;
+}
+.btn:visited {
+  background-color: black!important;
+}
+
+.btn {
+  margin-top: 1%;
+  background-color: #5b6c87;
+}
+
+.btn:hover {
+  background-color: black;
+}
+
+
+
+li {
+  list-style: none;
+}

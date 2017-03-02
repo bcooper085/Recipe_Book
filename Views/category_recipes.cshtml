@@ -6,12 +6,12 @@
 @foreach(var recipe in Model["recipes"])
 {
   <li>
-    <h4>@recipe.GetName()</h4>
-    <h4>@recipe.GetIngredients()</h4>
-    <h4>@recipe.GetInstructions()</h4>
+    <h5>Recipe Name: @recipe.GetName()</h5>
+    <h5>Ingredients: @recipe.GetIngredients()</h5>
+    <p>Instructions: @recipe.GetInstructions()</p>
     <form action="/recipe/delete/@recipe.GetId()" method="post">
     <input type="hidden" name="_method" value="DELETE">
-    <button type="submit" name="button">Delete Recipe</button>
+    <button type="submit" class="waves-effect waves-light btn" name="button">Delete Recipe</button>
     </form>
   </li>
 }
@@ -20,7 +20,7 @@
     <input type="text" name="recipe-name" placeholder="Recipe Name">
     <input type="text" name="recipe-ingredients" placeholder="Recipe Ingredients">
     <input type="text" name="recipe-instructions" placeholder="Recipe Instructions">
-    <button type="submit" name="button">Add Recipe</button>
+    <button type="submit" class="waves-effect waves-light btn" name="button">Add Recipe</button>
 </form>
 
-<a href="/">Home</a>
+<a href="/" class="waves-effect waves-light btn">Home</a>
