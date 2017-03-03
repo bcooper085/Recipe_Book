@@ -52,7 +52,44 @@ namespace RecipeBox
       return _instructions;
     }
 
-    
+    public void UpdateRecipe(string NewName, string NewIngredients, string NewInstructions)
+      {
+          SqlConnection conn = DB.Connection();
+          conn.Open();
+
+          SqlCommand cmd = new SqlCommand("UPDATE recipes SET name = @NewName, ingredients = @NewIngredients, instructions = @NewInstructions OUTPUT INSERTED.* WHERE id = @RecipeId;", conn);
+
+          cmd.Parameters.Add(new SqlParameter("@NewName", NewName));
+
+          cmd.Parameters.Add(new SqlParameter("@NewIngredients", NewIngredients));
+
+          cmd.Parameters.Add(new SqlParameter("@NewInstructions", NewInstructions));
+
+
+          SqlParameter recipeIdParameter = new SqlParameter();
+          recipeIdParameter.ParameterName = "@RecipeId";
+          recipeIdParameter.Value = this.GetId();
+          cmd.Parameters.Add(recipeIdParameter);
+
+          SqlDataReader rdr = cmd.ExecuteReader();
+
+          while(rdr.Read())
+          {
+              this._name = rdr.GetString(0);
+              this._ingredients = rdr.GetString(1);
+              this._instructions = rdr.GetString(2);
+          }
+
+          if(rdr != null)
+          {
+              rdr.Close();
+          }
+          if(conn != null)
+          {
+              conn.Close();
+          }
+      }
+
 
     public static List<Recipe> GetAll()
     {

@@ -9,10 +9,21 @@
     <h5>Recipe Name: @recipe.GetName()</h5>
     <h5>Ingredients: @recipe.GetIngredients()</h5>
     <p>Instructions: @recipe.GetInstructions()</p>
+
+    <form action="/recipe/edit/@recipe.GetId()" method="post">
+    <input type="hidden" name="_method" value="PATCH">
+    <input type="text" name="recipe-name" placeholder="Recipe Name">
+    <input type="text" name="recipe-ingredients" placeholder="Recipe Ingredients">
+    <input type="text" name="recipe-instructions" placeholder="Recipe Instructions">
+    <button type="submit" class="waves-effect waves-light btn" name="button">Edit Recipe</button>
+    </form>
+
     <form action="/recipe/delete/@recipe.GetId()" method="post">
     <input type="hidden" name="_method" value="DELETE">
     <button type="submit" class="waves-effect waves-light btn" name="button">Delete Recipe</button>
     </form>
+
+
   </li>
 }
 <h3>New Recipe</h3>

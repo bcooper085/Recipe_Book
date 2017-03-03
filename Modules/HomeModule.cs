@@ -67,6 +67,13 @@ namespace RecipeBox
               return View["category_recipes.cshtml", SelectedRecipe];
             };
 
+            Patch["/recipe/edit/{id}"] = parameters => {
+              Recipe SelectedRecipe = Recipe.Find(parameters.id);
+              SelectedRecipe.UpdateRecipe(Request.Form["recipe-name"], Request.Form["recipe-ingredients"], Request.Form["recipe-instructions"]);
+              return View["success.cshtml", Recipe.GetAll()];
+            };
+
+
             Delete["/recipe/delete/{id}"] = parameters => {
               Dictionary<string, object> model = new Dictionary<string, object>();
               Recipe SelectedRecipe = Recipe.Find(parameters.id);
