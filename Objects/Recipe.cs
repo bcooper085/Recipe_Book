@@ -75,9 +75,9 @@ namespace RecipeBox
 
           while(rdr.Read())
           {
-              this._name = rdr.GetString(0);
-              this._ingredients = rdr.GetString(1);
-              this._instructions = rdr.GetString(2);
+              this._name = rdr.GetString(1);
+              this._ingredients = rdr.GetString(2);
+              this._instructions = rdr.GetString(3);
           }
 
           if(rdr != null)
